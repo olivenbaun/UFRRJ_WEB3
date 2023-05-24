@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        function aula_08() {
+            const  xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                console.log("chegamos aqui");
+                if(xmlhttp.readyState==4){
+                    var h1 = document.querySelector("h1")
+                    var h2 = document.querySelector("h2")
+                    if (xmlhttp.status!= 200) {
+                        resp1 =  h1.innerHTML ;
+                        resp2 = h2.innerHTML  ;
+                    }else{
+                            if (resp1.lenght < 10) {
+                                resp1 = document.getElementById("input").value;
+                            }
+                    }
+                }
+                
+            } 
+            xmlhttp.open("POST", "index.js", true);
+            xmlhttp.send("conteudo =" );
+        }
+    </script>
+ 
+
+</head>
+<body>
+
+ <h1>Meu H1</h1>
+    <h2>Meu H2</h2>
+    <input type="text" name="input" id="input">
+
+    <button onclick="aula_08()">clique</button>
+</body>
+</html>
